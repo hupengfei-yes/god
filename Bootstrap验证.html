@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <title>Hello, world!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    <style>
+        .container {
+            padding-top: 10px;
+        }
+    </style>
+    <script>  
+        window.onload = function(){
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="studentCode">学号</label>
+                <input type="text" name="studentCode" class="form-control" placeholder="请输入学号" required >
+                <small class="form-text text-muted">8位数字</small>
+                <div class="valid-feedback">
+                    学号验证通过
+                </div>
+                <div class="invalid-feedback">
+                    19级的学号以19开头
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobile">手机号</label>
+                <input type="text" name="mobile" class="form-control" placeholder="请输入手机号" required >
+                <small class="form-text text-muted">11位数字</small>
+            </div>
+            <div class="form-group">
+                <label for="address">地址</label>
+                <input type="text" name="address" class="form-control" placeholder="请输入地址" required >
+            </div>
+            <div class="form-group">
+                <label for="birthday">出生日期</label>
+                <input type="text" name="birthday" class="form-control" required >
+                <small class="form-text text-muted">范围1900 - 2020</small>
+            </div>
+            <input type="submit" class="btn btn-success" value="提交">
+        </form>
+    </div>
+    
+    <script src="https://lib.baomitu.com/jquery/3.5.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
